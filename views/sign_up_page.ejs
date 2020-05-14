@@ -1,0 +1,33 @@
+<head>   
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
+    <link rel="stylesheet" href="/signup.css">
+</head>
+
+<body>
+    <div class="flex-container">
+        <h1>Sign up</h1><br/>
+        <p class="lead"><%=invalid_input2%></p>
+        <form name="signupform" method="POST" action='/signup/signingup' onsubmit="return validateForm3()">
+            First name:<input type="text" name="new_first_name" class="form" placeholder="enter first name"><br/>
+            Last name:<input type="text" name="new_last_name" class="form" placeholder="enter last name"><br/>
+            Username:<input type="text" name="new_username" class="form" placeholder="enter username"><br/>
+            New password:<input type="text" name="new_password" class="form" placeholder="enter new password"><br/>
+            Monthly budget:<input type="number" name="new_monthly_limit" class="form" placeholder="enter monthly limit" step="0.01" min="0"><br/><br/><br/>
+            <button>Sign up</button>
+        </form>
+    </div>
+</body>
+
+<script>
+    function validateForm3() {
+        var a = document.forms["signupform"]["new_username"].value;
+        var b = document.forms["signupform"]["new_password"].value;
+        var c = document.forms["signupform"]["new_first_name"].value;
+        var d = document.forms["signupform"]["new_last_name"].value;
+        var e = document.forms["signupform"]["new_monthly_limit"].value;
+        if (a == "" || b == "" || c == "" || d == "" || e == "") {
+          window.alert("All fields must be filled");
+          return false;
+        }
+    }
+</script>

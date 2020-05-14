@@ -1,0 +1,31 @@
+<head>   
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
+    <link rel="stylesheet" href="/front_login.css">
+</head> 
+
+<body>
+    <div class="flex-container">
+        <h1>BUDGET CARE</h1><br/>
+        <p1 class="lead">Save money by keeping track of it</p1><br/>
+        <p2 class="lead"><%=invalid_input1%></p2>
+        <form name="loginform" method="POST" action='/loggedin' onsubmit="return validateForm1()">
+            <p3>username:</p3> <input type="text" name="username" class="form" placeholder="Enter Your username">
+            <p3>password:</p3> <input type="text" name="password" class="form" placeholder="Enter Your password"><br/><br/> 
+            <button>Sign In</button>
+        </form>
+        <form method="POST" action='/signup'>
+            <button> new user? click here </button>
+        </form>
+    </div>
+</body>
+
+<script>
+    function validateForm1() {
+        var x = document.forms["loginform"]["username"].value;
+        var y = document.forms["loginform"]["password"].value;
+        if (x == "" || y == "") {
+        window.alert("All fields must be filled");
+        return false;
+        }
+    }
+</script>

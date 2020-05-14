@@ -1,0 +1,62 @@
+<head>   
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
+  <link rel="stylesheet" href="/update_transactions.css">
+</head>
+
+<body>
+  <div class="flex-container">  
+    <p1 class="lead">Welcome <%=f_name%>! </p>
+    <form method="POST" action='/update_monthly_limit'>
+        <p class="lead">Your monthly limit is: Rs.<%=m_limit%> </p>
+        <button>click to update monthly limit</button>
+    </form>
+    <p class="lead">Total amount spent in this month is Rs. <%=s_transactions%> </p>
+    <p class="lead">Remaining amount to spend in this month is Rs. <%=m_remaining%> </p>
+    <p class="lead"><%=m_exceeded%> </p>
+    <p class="lead">Enter your transaction information:</p>
+    <form name="transactionform" method="POST" action='/loggedin/transactions' onsubmit="return validateForm4()">
+        <input type="text" name="event_or_item" class="form" placeholder="event/item">
+        <input type="text" name="mode_of_payment" class="form" placeholder="mode of payment">
+        <input type="number" name="amount_spent" class="form" placeholder="amount spent" step="0.01" min="0">
+        <button>Submit</button>
+    </form>
+    <p class="lead">Your recent transactions are:</p>
+    <table class="center" border="1" cellpadding="7" cellspacing="7">
+        <tr>
+          <th>Events or Items</th>
+          <th>Payment Method</th>
+          <th>Amount Spent</th>
+          <th>Date and time of the transaction</th>
+        </tr>
+        <% if(data.length){ 
+          for(var i = 0;i < data.length;i++) { %>
+        <tr>
+          <td><%=data[i].event%></td>
+          <td><%=data[i].payment_method%></td>
+          <td><%=data[i].amount_spent%></td>
+          <td><%=data[i].created_at%></td>
+        </tr>
+        <% }
+        }else{ %>
+        <tr>
+          <td colspan="3">No transactions</td>
+        </tr>
+      <% } %>
+      </table><br/>
+      <form method="POST" action='/logout'>
+        <button>Log out</button>
+      </form>
+  </div>
+</body>
+
+<script>
+  function validateForm4() {
+      var a = document.forms["transactionform"]["event_or_item"].value;
+      var b = document.forms["transactionform"]["mode_of_payment"].value;
+      var c = document.forms["transactionform"]["amount_spent"].value;
+      if (a == "" || b == "" || c == "") {
+        window.alert("All fields must be filled");
+        return false;
+      }
+  }
+</script>

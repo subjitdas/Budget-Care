@@ -1,0 +1,22 @@
+<head>   
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
+    <link rel="stylesheet" href="/monthly_limit.css">
+  </head>
+
+<body>
+    <h1>Insert monthly budget</h1><br/>
+    <form name="updatemonthlylimitform" method="POST" action='/loggedin/update_monthly_limit/updating_monthly_limit' onsubmit="return validateForm2()">
+        <input type="number" name="monthly_limit" class="form" placeholder="Enter Your budget ">
+        <button>Submit</button>
+    </form>
+</body>
+
+<script>
+    function validateForm2() {
+        var x = document.forms["updatemonthlylimitform"]["monthly_limit"].value;
+        if (x == "") {
+          window.alert("All fields must be filled");
+          return false;
+        }
+    }
+</script>
