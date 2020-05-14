@@ -1,3 +1,5 @@
+const port = process.env.PORT||3000;
+
 var express = require('express');
 var app = express();
 var mysql = require('mysql');
@@ -153,6 +155,6 @@ app.post("/loggedin/transactions",function(req,res){
     });
 });
 
-app.listen(3000,function(){
+app.listen(port,function(){
     console.log("App is connected to port 3000!");
 });
