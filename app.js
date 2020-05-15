@@ -1,12 +1,12 @@
-const express = require('express');
-const app = express();
-const bodyparser = require('body-parser');
+const express = require('express')
+const app = express()
+const bodyparser = require('body-parser')
 const routes = require('./routes/routes')
 
 const port = process.env.PORT||3000;
 
-app.use(bodyparser.urlencoded({extended:true}));
-app.use(express.static(__dirname + "/public"));  //to connect to css folder
+app.use(bodyparser.urlencoded({extended:true}))
+app.use(express.static(__dirname + "/public"))  //to connect to css folder
 app.use(routes)
 
 app.set("view engine","ejs");

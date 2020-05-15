@@ -1,14 +1,15 @@
+const dotenv = require('dotenv')
+dotenv.config()
 const express = require('express')
-const mysql = require('mysql');
-
+const mysql = require('mysql')
 const router = express.Router()
 
 const connection = mysql.createConnection({
-    host     : 'localhost',
-    user     : 'debian-sys-maint',
-    password : 'ay3m0Lq7nqfY7PWY',
-    database : 'budget_care'
-});
+    host     : process.env.host,
+    user     : process.env.user,
+    password : process.env.password,
+    database : process.env.database
+})
 
 var uname;
 var upass;
