@@ -1,3 +1,4 @@
 node_modules
 package-lock.json
 .env
+budget_care_web_app_workspace.code-workspace
