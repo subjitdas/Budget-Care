@@ -29,5 +29,13 @@
           window.alert("All fields must be filled");
           return false;
         }
+        if ((b.includes("'"))||(b.includes("\\"))||(b.includes("\""))){
+            window.alert("Password must not contain these characters- ',\\,\"");
+            return false;
+        }
+        if (b.length < 8){
+            window.alert("Password must be atleast of length 8");
+            return false;
+        }
     }
 </script>
