@@ -3,7 +3,7 @@ const mysql = require('mysql')
 const dbConfig = require('../config/db.config.js')
 const router = express.Router()
 
-const connection = mysql.createConnection({
+const connection = mysql.createPool({
     host     : dbConfig.host,
     user     : dbConfig.user,
     password : dbConfig.password,
