@@ -1,14 +1,13 @@
-const dotenv = require('dotenv')
-dotenv.config()
 const express = require('express')
 const mysql = require('mysql')
+const dbConfig = require('../config/db.config.js')
 const router = express.Router()
 
 const connection = mysql.createConnection({
-    host     : process.env.host,
-    user     : process.env.user,
-    password : process.env.password,
-    database : process.env.database
+    host     : dbConfig.host,
+    user     : dbConfig.user,
+    password : dbConfig.password,
+    database : dbConfig.database
 })
 
 var uname;
