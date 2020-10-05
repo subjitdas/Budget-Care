@@ -4,7 +4,7 @@ body {
     font-family: 'Roboto', sans-serif;
     color: rgba(0,0,0);
     height: 140%;
-    background-image: url('images/turquoise_mountains_4k.jpg');
+    background-color: rgb(78, 175, 207);
     background-size: cover;
     font-weight: 300;
 }
