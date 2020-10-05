@@ -8,7 +8,7 @@ const helmet = require('helmet')
 const port = process.env.PORT||3000;
 
 app.use(bodyparser.urlencoded({extended:true}))
-app.use(express.static(__dirname + "/public"))  //to connect to css folder
+app.use(express.static(__dirname + "/public"))
 app.use(routes)
 app.use(compression())
 app.use(helmet())
