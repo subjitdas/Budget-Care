@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "nodemon app.js"
   },
   "author": "subjitdas",
   "license": "ISC",
@@ -16,5 +16,8 @@
     "express": "^4.17.1",
     "helmet": "^4.1.1",
     "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
   }
 }
